@@ -1,4 +1,4 @@
-//import StoreItem from './StoreItem'
+import StoreItem from './StoreItem'
 
 const Store = (props) => {
   const storeItems = props.storeItems;
@@ -8,15 +8,16 @@ const Store = (props) => {
     
     {storeItems.map(item => {
     return(
-      <li>
-      <div class="store--item-icon">
-        <img src={`./assets/icons/${item.id}.svg`} alt={item.name} />
-    </div>
-    <button className="add-to-cart-button" onClick={(event) => addItemToCart(item)}
-    >Add to cart
-    </button>
+      <StoreItem key={item.id} item={item} addItemToCart={addItemToCart}/>
+    //   <li>
+    //   <div class="store--item-icon">
+    //     <img src={`./assets/icons/${item.id}.svg`} alt={item.name} />
+    // </div>
+    // <button className="add-to-cart-button" onClick={(event) => addItemToCart(item)}
+    // >Add to cart
+    // </button>
     
-    </li>
+    // </li>
   )})}
   </ul>
   )
