@@ -3,7 +3,7 @@ import './styles/index.css'
 
 import { useState } from 'react'
 import initialStoreItems from './store-items'
-//import Store from './components/Store.js'
+import Store from './components/Store.js'
 
 /*
 const shopItem = [
@@ -23,6 +23,7 @@ export default function App() {
   const [storeItems, setStoreItems] = useState(initialStoreItems)
   const [cart, setCart] = useState([])
   const [count, setCount] = useState(0)
+  
   // // Setup state here...
 
   const addItemToCart = (item) => {
@@ -33,22 +34,9 @@ export default function App() {
     <>
       <header id="store">
         <h1>Greengrocers</h1>
-        <ul className="item-list store--item-list">
-            {storeItems.map(item => {
-              return(
-              <li>
-                <div class="store--item-icon">
-                <img src={`/assets/icons/${item.id}.svg`} alt={item.name} />
-                </div>
-                <button
-                  className="add-to-cart-button"
-                  onClick={(event) => addItemToCart(item)}
-                >Add to cart
-                </button>
-                
-              </li>
-            )})}
-          </ul>
+        
+        <Store storeItems={storeItems} addItemToCart={addItemToCart} />
+        
       </header>
 
       <main id="cart">
